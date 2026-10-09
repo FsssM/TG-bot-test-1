@@ -18,7 +18,7 @@ async def cmd_menu(message: Message):
         "☕ Наше Меню команд:\n"
         "/start — Перезапуск бота\n"
         "/menu — Список всех команд кафе\n"
-        "/add_product — Добавить напиток в базу\n"
+        "/add_drink — Добавить напиток в базу\n"
         "/drinks — Посмотреть список напитков"
     )
     await message.answer(menu_text)
@@ -35,7 +35,7 @@ async def about_cafe(callback: CallbackQuery):
     await callback.message.answer("☕ Наше кафе — это место с самым вкусным кофе!")
     await callback.answer()
 
-@router_cafe.message(Command('add_product'))
+@router_cafe.message(Command('add_drink'))
 async def start_add_product(message: Message, state: FSMContext):
     await message.answer("Введите название напитка:")
     await state.set_state(CafeProduct.name)
